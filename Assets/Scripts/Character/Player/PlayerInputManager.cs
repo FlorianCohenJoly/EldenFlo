@@ -77,8 +77,10 @@ public class PlayerInputManager : MonoBehaviour
 
          // HOLDING THE INPUT, SETS THE BOOL TO TRUE
          playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
+         Debug.Log("Sprint Input: " + sprintInput);
          // RELEASE THE INPUT, SETS THE BOOL TO FALSE
          playerControls.PlayerActions.Sprint.canceled += i => sprintInput = false;
+         Debug.Log("Sprint Input: " + sprintInput);
       }
       playerControls.Enable();
    }

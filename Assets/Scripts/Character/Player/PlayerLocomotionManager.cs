@@ -60,6 +60,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
     {
         HandleGroundedMovement();
         HandleRotation();
+        
     }
 
     private void GetMovementValues()
@@ -98,8 +99,6 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
                 player.characterController.Move(moveDirection * walkingSpeed * Time.deltaTime);
             }
         }
-
-
     }
 
     private void HandleRotation()
