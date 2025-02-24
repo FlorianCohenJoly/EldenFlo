@@ -38,9 +38,9 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
 
         if (player.IsOwner)
         {
-            verticalMovement = player.characterNetworkManager.verticalMovement.Value;
-            horizontalMovement = player.characterNetworkManager.horizontalMovement.Value;
-            moveAmount = player.characterNetworkManager.moveAmount.Value;
+             player.characterNetworkManager.verticalMovement.Value = verticalMovement;
+             player.characterNetworkManager.horizontalMovement.Value = horizontalMovement;
+             player.characterNetworkManager.moveAmount.Value = moveAmount;
 
 
 
@@ -90,7 +90,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         }
         else
         {
-            if (PlayerInputManager.instance.moveAmount > 0.5f)
+            if (PlayerInputManager.instance.moveAmount >= 0.5f)
             {
                 player.characterController.Move(moveDirection * runningSpeed * Time.deltaTime);
             }

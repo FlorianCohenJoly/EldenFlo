@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3243629691
+  GlobalObjectIdHash: 3243880917
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -83,6 +83,7 @@ MonoBehaviour:
   canMove: 1
   playerAnimatorManager: {fileID: 0}
   playerLocomotionManager: {fileID: 0}
+  playerNetworkManager: {fileID: 0}
 --- !u!114 &2396357910109214299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +109,8 @@ MonoBehaviour:
     m_InternalValue: 0
   moveAmount:
     m_InternalValue: 0
+  isSprinting:
+    m_InternalValue: 0
 --- !u!114 &-7332248836889893773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +128,7 @@ MonoBehaviour:
   moveAmount: 0
   walkingSpeed: 1.5
   runningSpeed: 4.5
+  sprintingSpeed: 7
   rotationSpeed: 15
 --- !u!143 &-1121062885533927669
 CharacterController:
@@ -1622,7 +1626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6055817456362908542}
   m_LocalRotation: {x: 0.46113664, y: -0.5360532, z: -0.46113664, w: 0.5360532}
-  m_LocalPosition: {x: -0, y: 0.8762761, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
