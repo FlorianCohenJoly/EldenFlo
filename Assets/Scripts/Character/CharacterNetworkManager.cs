@@ -23,6 +23,12 @@ public class CharacterNetworkManager : NetworkBehaviour
 
     [Header("Flags")]
     public NetworkVariable<bool> isSprinting = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    [Header("Stats")]
+    public NetworkVariable<int> endurance = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<int> currentStamina = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<int> maxStamina = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
+
 
     protected virtual void Awake()
     {
@@ -33,7 +39,7 @@ public class CharacterNetworkManager : NetworkBehaviour
     [ServerRpc]
     public void NotifyTheServerOfActionAnimationServerRpc(ulong clienID, string animationID, bool applyRootMotion)
     {
-        if(IsServer)
+        if (IsServer)
         {
             PlayActionAnimationForAllClientsClientRpc(clienID, animationID, applyRootMotion);
         }
@@ -42,7 +48,7 @@ public class CharacterNetworkManager : NetworkBehaviour
     [ClientRpc]
     public void PlayActionAnimationForAllClientsClientRpc(ulong clientID, string animationID, bool applyRootMotion)
     {
-        if(clientID != NetworkManager.Singleton.LocalClientId)
+        if (clientID != NetworkManager.Singleton.LocalClientId)
         {
             PerformActionAnimationFromServer(animationID, applyRootMotion);
         }
